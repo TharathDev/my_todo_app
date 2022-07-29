@@ -4,7 +4,8 @@ import 'package:my_todo_app/constants.dart';
 
 class RoundedPassword extends StatelessWidget {
   final ValueChanged<String> onchange;
-  const RoundedPassword({
+  final TextEditingController passwordController = new TextEditingController();
+  RoundedPassword({
     Key? key,
     required this.onchange,
   }) : super(key: key);
@@ -14,6 +15,8 @@ class RoundedPassword extends StatelessWidget {
     return TextFieldContainer(
       child: TextField(
         onChanged: onchange,
+        obscureText: true,
+        controller: passwordController,
         decoration: InputDecoration(
             hintText: "Password",
             icon: Icon(

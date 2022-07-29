@@ -6,7 +6,8 @@ class RoundedInputField extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final ValueChanged<String> onChange;
-  const RoundedInputField({
+  final TextEditingController emailController = new TextEditingController();
+  RoundedInputField({
     Key? key,
     required this.hintText,
     this.icon = Icons.person,
@@ -18,13 +19,15 @@ class RoundedInputField extends StatelessWidget {
     return TextFieldContainer(
       child: TextField(
         onChanged: onChange,
+        controller: emailController,
         decoration: InputDecoration(
-            icon: Icon(
-              icon,
-              color: kPrimaryColor,
-            ),
-            hintText: hintText,
-            border: InputBorder.none),
+          icon: Icon(
+            icon,
+            color: kPrimaryColor,
+          ),
+          hintText: hintText,
+          border: InputBorder.none,
+        ),
       ),
     );
   }
